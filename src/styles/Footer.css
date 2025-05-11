@@ -1,0 +1,13 @@
+.socialHandles{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.socialHandlesContainer{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}

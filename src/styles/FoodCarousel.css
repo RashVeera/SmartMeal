@@ -1,0 +1,15 @@
+.food-carousel{
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 1rem;
+    scroll-behavior: smooth;
+}
+
+.food-item>img{
+    height: 150px;
+}
+
+.food-carousel::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}

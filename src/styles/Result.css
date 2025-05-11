@@ -1,0 +1,58 @@
+.result-container{
+    color: white;
+}
+
+
+.result-table{
+    margin: auto;
+    width: 70%;
+}
+
+table, th, td{
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.result-details{
+    margin: auto;
+    width: 50%;
+    text-align: left;
+    word-spacing: 0.2rem;
+}
+
+/* Mobile (small) */
+@media (max-width: 479px) {
+  .result-details{
+    width: 90%;
+}
+.result-container .namePlan{
+    text-align: center;
+    margin-left: 1.5rem;
+}
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .result-details{
+    width: 90%;
+}
+.result-container .namePlan{
+    text-align: center;
+    margin-left: 1.5rem;
+}
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .result-details {
+    width: 90%;
+}
+.result-table{
+    width: 80%;
+}
+
+}
+
+/* Laptop */
+@media (min-width: 992px) {
+  
+}
