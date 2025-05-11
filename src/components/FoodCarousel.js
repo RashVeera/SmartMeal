@@ -46,13 +46,13 @@ const FoodCarousel = () => {
 
   return (
     <div ref={scrollRef} className='food-carousel'>
-        {/* {
+        {
             foodImages.map((foodImage, index) => (
                 <div key={index} className='food-item'>
                     <img src={foodImage} alt={`Food ${index + 1}`} />
                 </div>
             ))
-        } */}
+        }
     </div>
   )
 }
