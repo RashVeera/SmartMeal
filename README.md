@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# 🥗 SmartMeal Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Live Demo:** [https://smartmealbyajitha.netlify.app](https://smartmealbyajitha.netlify.app)
 
-## Available Scripts
+SmartMeal Planner is an AI-powered meal planning application that helps users generate a **7-day personalized meal plan** based on their health details, preferences, and dietary restrictions. It uses Groq's LLaMA 3 model to generate meal plans in real-time and displays the data in a user-friendly format.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🌿 **Personalized Meal Plans** — Tailored to user inputs like weight, height, age, allergies, goals, etc.
+- 🧠 **AI-Powered** — Uses Groq's LLaMA-3.3-70B-Versatile model for generating JSON-based diet plans.
+- 📊 **Table View** — Easy-to-read 7-day meal breakdown (Breakfast, Lunch, Dinner).
+- 🖼️ **Image Carousel** — Rotating carousel of food images for visual appeal.
+- 🔄 **Redux-Powered Form** — Persists user data with Redux for form state and navigation.
+- 🚀 **Deployed on Netlify** — Fast and responsive experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📸 Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Loading screen
+![Loading screen](image.png)
 
-### `npm run build`
+Form Details page
+![Form Page](<Screenshot 2025-06-01 221526.png>)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Groq Response
+![Table details](<Screenshot 2025-06-01 221545.png>)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Rolling carousel
+![Carousel](<Screenshot 2025-06-01 221552.png>)
+## 🛠️ Built With
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React.js** (Functional Components & Hooks)
+- **Redux Toolkit** (for global form state)
+- **Groq SDK** (AI-generated meal plans using LLaMA model)
+- **CSS Modules** for styling
+- **Netlify** for deployment
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🚀 Getting Started (Local Development)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Clone the repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/<your-github-username>/smartmeal-planner.git
+cd smartmeal-planner
+```
+### 2. Install dependencies
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Create .env file
+Create a .env file in the root directory and add your Groq API key:
 
-## Learn More
+```
+REACT_APP_GROQ_API_KEY=your_groq_api_key_here
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+⚠️ Groq API must support browser-based requests (dangerouslyAllowBrowser is used). Make sure your key has the right permissions.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Start development server
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 🧪 How It Works
+- User enters personal details (name, age, weight, height, dietary preference, etc.)
 
-### Analyzing the Bundle Size
+- Upon submission, data is saved in Redux and user is navigated to the /plans page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- The app constructs a custom prompt and calls the Groq API to get a meal plan in JSON format.
 
-### Making a Progressive Web App
+- The response is parsed and rendered in a structured table.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- A bottom carousel keeps scrolling to showcase food images.
 
-### Advanced Configuration
+### 🧠 AI Prompt Template (Snippet)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+You are a meal planner AI. You are given the following details...
+Create a personalized meal plan for 7 days...
+Respond with strictly a valid JSON:
+```
+{
+  "meal_plan": {
+    "monday": { "breakfast": {...}, "lunch": {...}, "dinner": {...} },
+    ...
+  }
+}
+```
+### 🧩 Folder Structure
+```
+src/
+├── components/
+│   ├── Body.jsx         # Form component
+│   ├── Result.jsx       # Displays meal plan from AI
+│   ├── FoodCarousel.jsx # Image slider
+│   ├── Loading.jsx      # Loading spinner
+│   ├── Footer.jsx
+├── utils/
+│   └── UserDetails.js   # Redux slice
+├── styles/              # CSS modules
+│   ├── Body.css
+│   └── Result.css
+.env                     # Add your Groq key here
+```
 
-### Deployment
+### 📦 Deployment
+### The app is deployed on Netlify. To deploy your own version:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Push code to GitHub.
 
-### `npm run build` fails to minify
+- Connect repo to Netlify.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add REACT_APP_GROQ_API_KEY in Netlify Environment Variables.
+
+- Hit deploy!
+
+### 🙋‍♀️ Author
+Rashika
+Frontend Developer passionate about building AI-integrated user experiences.
+# 📫 Connect with me on LinkedIn
+[Rashika_Profile](https://www.linkedin.com/in/rashika-v-87b309150/)
+
